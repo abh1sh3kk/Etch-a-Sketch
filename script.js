@@ -18,20 +18,25 @@ setGrid.addEventListener("click", ()=>{
 });
 
 
-// ready to draw
-let trail = document.querySelectorAll(".item");
-trail.forEach(function (currentValue) {
-  currentValue.addEventListener("mouseover", () => {
-    currentValue.classList.add("touched");
-  });
+gridBox.addEventListener("mouseover", (e)=> {
+  console.log(e.target.classList.add("touched"));
+  console.log(e.target);
 });
 
+// ready to draw
+// // let trail = document.querySelectorAll(".item");
+// trail.forEach(function (currentValue) {
+//   currentValue.addEventListener("mouseover", () => {
+//     currentValue.classList.add("touched");
+//   });
+// });
+
 // ready to reset
-trail.forEach(function (currentValue) {
-  reset.addEventListener("click", () => {
-    currentValue.classList.remove("touched");
-  });
-});
+// trail.forEach(function (currentValue) {
+//   reset.addEventListener("click", () => {
+//     currentValue.classList.remove("touched");
+//   });
+// });
 
 // updates slider value as you are sliding
 currValue.textContent = slider.value;
@@ -48,6 +53,7 @@ function makeGrid(userChoice) {
   for (let i = 1; i <= userChoice ** 2; i++) {
     let item = document.createElement("div");
     item.classList.add("item");
+    item.classList.add(`item${i}`);
     gridBox.appendChild(item);
   }
 }

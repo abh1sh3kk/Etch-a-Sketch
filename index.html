@@ -8,8 +8,25 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="title">Etch-a-Sketch</div>
+
     <div class="container">
-	<div class="slider">Choose the grid</div>
+      <div class="slider-area">
+        <div class="currValue"></div>
+
+        <div class="slider">
+          <div class="min">0</div>
+
+          <div class="input">
+            <input type="range" min="0" max="99" value="50" id="slider" />
+          </div>
+
+          <div class="max">99</div>
+
+          <div class="currValue"></div>
+        </div>
+      </div>
+
       <div class="gridBox">
         <!-- <div class="item"></div>
         <div class="item"></div>
@@ -22,82 +39,49 @@
         <div class="item"></div> -->
       </div>
       <div class="reset">
-	      <button class="reset-grid">Reset</button>
+        <button class="reset-button">RESET</button>
       </div>
     </div>
 
-
-
-
-
     <script>
-
-
-
       let gridBox = document.querySelector(".gridBox");
+      let slider = document.querySelector("#slider");
+      let currValue = document.querySelector(".currValue");
 
-      let userChoice;
-       userChoice = askUser();
+      currValue.textContent = slider.value;
+      let userChoice = 5;
 
-      function askUser(){
-	      choice = +prompt("Enter a number");
-	      if (userChoice > 100) 
-	     	 choice = askUser();
-	      return choice;
-      }
+      slider.addEventListener("input", function () {
+        currValue.textContent = this.value;
+      });
 
       gridBox.setAttribute(
         "style",
         `grid-template: repeat(${userChoice}, 1fr) / repeat(${userChoice}, 1fr);`
       );
 
-      for (let i=1; i<=userChoice**2; i++)
-      {
-	      let item = document.createElement("div");
-	      item.classList.add("item");
-	      gridBox.appendChild(item);
+      for (let i = 1; i <= userChoice ** 2; i++) {
+        let item = document.createElement("div");
+        item.classList.add("item");
+        gridBox.appendChild(item);
       }
-      
+
       let temp = document.querySelectorAll(".item");
 
-      temp.forEach(
-	      function(currentValue){
-		currentValue.addEventListener("mouseover", ()=>{
-			currentValue.classList.add("touched");
-		})
-		console.log(currentValue.className);
-	      }
-      );
+      temp.forEach(function (currentValue) {
+        currentValue.addEventListener("mouseover", () => {
+          currentValue.classList.add("touched");
+        });
+        console.log(currentValue.className);
+      });
 
-      let reset = document.querySelector(".reset-grid");
+      let reset = document.querySelector(".reset-button");
 
-      temp.forEach(
-	      function(currentValue){
-		      reset.addEventListener("click", ()=>{
-			      currentValue.classList.remove("touched");
-		      })
-	      }
-      )
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      temp.forEach(function (currentValue) {
+        reset.addEventListener("click", () => {
+          currentValue.classList.remove("touched");
+        });
+      });
     </script>
   </body>
 </html>

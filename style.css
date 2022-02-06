@@ -1,36 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@500&display=swap");
+
 :root {
-  --yellow: #ffc600;
+  --yellow: #f1ca3b;
   --black: #272727;
+  --blue: #664aff;
+  --black: #25252a;
+  --red: rgb(255, 0, 68);
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
-	background-color: var(--black);
-	display: flex;
-	height: 100vh;	
-	justify-content: center;
-	align-items: center;
-	color: white;
-	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: var(--black);
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+.title {
+  display: flex;
+  font-family: "Bowlby One SC", cursive;
+  color: rgb(255, 255, 61);
+  /* color: yellow; */
+  justify-content: center;
+  text-shadow: 2px 2px 2px black;
+  font-size: 60px;
+  margin: 20px 0px;
+}
+.slider{
+  display: flex;
+  gap: 5px;
+}
+.min, .max {
+  font-size: 17px;
+  font-weight: bold;
+  color:rgb(255, 255, 61);
+}
+.currValue {
+  margin: 15px;
+  color:rgb(255, 255, 61);
+  font-size: 35px;
+  text-shadow: 2px 0px 3px black;
+  background-color:rgb(255, 0, 68);
+  border-radius: 20px;
+}
+#slider {
+    -webkit-appearance: none;
+    background-color: #d3d3d3;
+    opacity: 0.95;
+    height: 5px;
+    background-color:rgb(255, 255, 61);
+}
+#slider:hover{
+  opacity: 1;
+}
+#slider::-moz-range-thumb {
+  background-color:rgb(255, 0, 68);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: grabbing;
+
+}
+
+
 .gridBox {
-	display: grid;
-	height: 500px; width: 500px;
-	gap: 2px;
+  display: grid;
+  min-height: 500px;
+  min-width: 500px;
+  gap: 2px;
 }
 .item {
-	background-color: yellowgreen;
+  background-color: rgb(255, 255, 61);
 }
 .touched {
-	background-color: brown;
+  background-color: var(--red);
 }
 
 .container {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 10px;
+}
+.reset-button {
+  color: white;
+  font-family: "Vollkorn", serif;
+  padding: 5px 45px;
+  background-color: var(--red);
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 4px 4px 9px black;
+}
+.reset-button:hover {
+  transform: scale(1.1);
+  transition: 0.1s linear;
+}
+.reset-button:active {
+  transform: scale(1);
+  box-shadow: 2px 2px 5px black;
 }

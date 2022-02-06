@@ -15,7 +15,6 @@ setGrid.addEventListener("click", ()=>{
 	location.reload();
 	makeGrid(slider.value);
 	userChoice = slider.value;
-
 });
 
 

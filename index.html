@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch a Sketch</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+	<div class="slider">Choose the grid</div>
+      <div class="gridBox">
+        <!-- <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div> -->
+      </div>
+      <div class="reset">
+	      <button class="reset-grid">Reset</button>
+      </div>
+    </div>
+
+
+
+
+
+    <script>
+
+
+
+      let gridBox = document.querySelector(".gridBox");
+
+      let userChoice;
+       userChoice = askUser();
+
+      function askUser(){
+	      choice = +prompt("Enter a number");
+	      if (userChoice > 100) 
+	     	 choice = askUser();
+	      return choice;
+      }
+
+      gridBox.setAttribute(
+        "style",
+        `grid-template: repeat(${userChoice}, 1fr) / repeat(${userChoice}, 1fr);`
+      );
+
+      for (let i=1; i<=userChoice**2; i++)
+      {
+	      let item = document.createElement("div");
+	      item.classList.add("item");
+	      gridBox.appendChild(item);
+      }
+      
+      let temp = document.querySelectorAll(".item");
+
+      temp.forEach(
+	      function(currentValue){
+		currentValue.addEventListener("mouseover", ()=>{
+			currentValue.classList.add("touched");
+		})
+		console.log(currentValue.className);
+	      }
+      );
+
+      let reset = document.querySelector(".reset-grid");
+
+      temp.forEach(
+	      function(currentValue){
+		      reset.addEventListener("click", ()=>{
+			      currentValue.classList.remove("touched");
+		      })
+	      }
+      )
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -15,15 +15,16 @@
         <div class="currValue"></div>
 
         <div class="slider">
-          <div class="min">0</div>
+          <div class="min">1</div>
 
           <div class="input">
-            <input type="range" min="0" max="99" value="50" id="slider" />
+            <input type="range" min="1" max="99" value="5" id="slider" />
           </div>
 
           <div class="max">99</div>
-
-          <div class="currValue"></div>
+        </div>
+        <div class="setGrid">
+          <button class="clickSetGrid">Set Grid!</button>
         </div>
       </div>
 
@@ -39,49 +40,10 @@
         <div class="item"></div> -->
       </div>
       <div class="reset">
-        <button class="reset-button">RESET</button>
+        <button class="reset-button">Reset</button>
       </div>
     </div>
 
-    <script>
-      let gridBox = document.querySelector(".gridBox");
-      let slider = document.querySelector("#slider");
-      let currValue = document.querySelector(".currValue");
-
-      currValue.textContent = slider.value;
-      let userChoice = 5;
-
-      slider.addEventListener("input", function () {
-        currValue.textContent = this.value;
-      });
-
-      gridBox.setAttribute(
-        "style",
-        `grid-template: repeat(${userChoice}, 1fr) / repeat(${userChoice}, 1fr);`
-      );
-
-      for (let i = 1; i <= userChoice ** 2; i++) {
-        let item = document.createElement("div");
-        item.classList.add("item");
-        gridBox.appendChild(item);
-      }
-
-      let temp = document.querySelectorAll(".item");
-
-      temp.forEach(function (currentValue) {
-        currentValue.addEventListener("mouseover", () => {
-          currentValue.classList.add("touched");
-        });
-        console.log(currentValue.className);
-      });
-
-      let reset = document.querySelector(".reset-button");
-
-      temp.forEach(function (currentValue) {
-        reset.addEventListener("click", () => {
-          currentValue.classList.remove("touched");
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

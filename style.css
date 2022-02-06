@@ -14,6 +14,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   background-color: var(--black);
   display: flex;
@@ -23,6 +24,7 @@ body {
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
 .title {
   display: flex;
   font-family: "Bowlby One SC", cursive;
@@ -32,6 +34,11 @@ body {
   text-shadow: 2px 2px 2px black;
   font-size: 60px;
   margin: 20px 0px;
+}
+.slider-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .slider{
   display: flex;
@@ -44,11 +51,11 @@ body {
 }
 .currValue {
   margin: 15px;
-  color:rgb(255, 255, 61);
+  color:white;
   font-size: 35px;
   text-shadow: 2px 0px 3px black;
-  background-color:rgb(255, 0, 68);
-  border-radius: 20px;
+  border-radius: 50px;
+  padding: 10px;
 }
 #slider {
     -webkit-appearance: none;
@@ -68,13 +75,26 @@ body {
   cursor: grabbing;
 
 }
-
+button {
+  color: white;
+  font-family: "Vollkorn", serif;
+  padding: 5px 45px;
+  background-color: var(--red);
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px black;
+}
+.clickSetGrid{
+  margin-top: 20px;
+}
 
 .gridBox {
   display: grid;
-  min-height: 500px;
-  min-width: 500px;
-  gap: 2px;
+  height: 550px;
+  width: 550px;
+  /* box-shadow: 2px 2px 2px black; */
+  gap: 1px;
 }
 .item {
   background-color: rgb(255, 255, 61);
@@ -89,21 +109,15 @@ body {
   justify-content: space-around;
   gap: 10px;
 }
-.reset-button {
-  color: white;
-  font-family: "Vollkorn", serif;
-  padding: 5px 45px;
-  background-color: var(--red);
-  border: none;
-  border-radius: 10px;
-  font-size: 20px;
-  box-shadow: 4px 4px 9px black;
+.reset-button
+{
+  font-size: 23px;
 }
-.reset-button:hover {
-  transform: scale(1.1);
+.reset-button:hover, .clickSetGrid:hover {
+  transform: scale(1.09);
   transition: 0.1s linear;
 }
-.reset-button:active {
+.reset-button:active, .clickSetGrid:active {
   transform: scale(1);
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 1px 1px 3px black;
 }

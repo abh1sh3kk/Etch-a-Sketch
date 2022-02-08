@@ -12,7 +12,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 body {
@@ -29,7 +29,6 @@ body {
   display: flex;
   font-family: "Bowlby One SC", cursive;
   color: rgb(255, 255, 61);
-  /* color: yellow; */
   justify-content: center;
   text-shadow: 2px 2px 2px black;
   font-size: 60px;
@@ -93,11 +92,12 @@ button {
   display: grid;
   height: 550px;
   width: 550px;
-  /* box-shadow: 2px 2px 2px black; */
-  gap: 1px;
+  box-shadow: 1px 1px 5px black;
 }
+
 .item {
   background-color: rgb(255, 255, 61);
+  border: 0.01px solid var(--black);
 }
 .touched {
   background-color: var(--red);
@@ -107,7 +107,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  gap: 10px;
 }
 .reset-button
 {

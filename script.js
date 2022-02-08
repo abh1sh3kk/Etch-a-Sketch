@@ -40,7 +40,7 @@ slider.addEventListener("input", function () {
 function makeGrid(userChoice) {
 
 
-  // if we dont remove the grid the new formed grids will compress the old ones reducing the size of new divs
+//   to prevent compression of new divs due to previously formed grids
   removeGrid();
 
   // create divs
